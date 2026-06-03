@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nagabairu Manoj | Cloud & DevOps Architect</title>
+  <meta name="description" content="Portfolio of Nagabairu Manoj, a Cloud & DevOps Architect specializing in cloud automation, zero-downtime CI/CD, and infrastructure as code.">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- CSS Link -->
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="dark-theme">
+  <!-- Ambient Background Blobs -->
+  <div class="blob-wrapper">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-accent">&lt;</span>Manoj<span class="logo-accent">.DevOps/&gt;</span>
+      </a>
+      
+      <nav class="nav-menu" id="nav-menu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#directory" class="nav-link">Toolset</a>
+        <a href="#projects" class="nav-link">Architectures</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Live System Status Badge -->
+        <div class="status-badge" title="Systems Active Status">
+          <span class="status-dot"></span>
+          <span>SYS STATUS: ACTIVE</span>
+        </div>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle" class="mobile-toggle-btn" aria-label="Toggle Navigation Menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-content fade-in-up">
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Nagabairu Manoj</span>
+        </h1>
+        <h2 class="hero-subtitle">
+          I engineer <span id="typewriter"></span><span class="cursor">|</span>
+        </h2>
+        <p class="hero-description">
+          Cloud & DevOps Architect bridging the gap between complex development needs and stable cloud operations. Dedicated to treating infrastructure as code, engineering zero-downtime workflows, and automating multi-cloud environments.
+        </p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary">View Architectures</a>
+          <a href="#skills" class="btn btn-secondary">Capabilities Matrix</a>
+        </div>
+        
+        <!-- Social Links -->
+        <div class="social-links">
+          <a href="https://linkedin.com/in/nagabairu-manoj" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
+
+        <!-- DevOps Cluster Monitor Dashboard -->
+        <div class="hero-nodes-grid">
+          <div class="node-status-card">
+            <span class="node-name">k8s-control-plane</span>
+            <span class="node-stat"><span class="status-dot"></span>Online</span>
+          </div>
+          <div class="node-status-card">
+            <span class="node-name">gitlab-ci-runner-01</span>
+            <span class="node-stat"><span class="status-dot"></span>Idle</span>
+          </div>
+          <div class="node-status-card">
+            <span class="node-name">aws-ecs-agent</span>
+            <span class="node-stat"><span class="status-dot"></span>Active</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-visual fade-in-up">
+        <!-- Infrastructure as Code mock graphic -->
+        <div class="terminal-mock">
+          <div class="terminal-header">
+            <span class="terminal-dot dot-red"></span>
+            <span class="terminal-dot dot-yellow"></span>
+            <span class="terminal-dot dot-green"></span>
+            <span class="terminal-title">cluster.tf</span>
+          </div>
+          <div class="terminal-body">
+            <pre><code><span class="code-key">resource</span> <span class="code-val">"aws_eks_cluster"</span> <span class="code-val">"prod"</span> {
+  <span class="code-key">name</span>     = <span class="code-val">"prod-core-cluster"</span>
+  <span class="code-key">role_arn</span> = <span class="code-val">aws_iam_role.eks.arn</span>
+
+  <span class="code-key">vpc_config</span> {
+    <span class="code-key">subnet_ids</span> = [
+      <span class="code-val">subnet.pri_1.id</span>, 
+      <span class="code-val">subnet.pri_2.id</span>
+    ]
+    <span class="code-key">endpoint_private_access</span> = <span class="code-val">true</span>
+    <span class="code-key">endpoint_public_access</span>  = <span class="code-val">false</span>
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section scroll-reveal">
+      <div class="section-header">
+        <span class="section-subtitle">Biography</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line"></div>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-info">
+          <h3>Aligning code delivery with secure, resilient cloud architecture.</h3>
+          <p>
+            I focus on bridging the gap between software development cycles and stable cloud systems. By treating infrastructure strictly as code, I automate the containerization, packaging, and orchestration of multi-cloud services.
+          </p>
+          <p>
+            My work centers on establishing zero-downtime CI/CD pipelines, locking down container network interfaces, and deploying end-to-end telemetry arrays to trace and handle system events before bottlenecks impact performance.
+          </p>
+          
+          <div style="margin-top: 2rem;">
+            <h4 style="margin-bottom: 0.8rem; font-size: 1.1rem; color: var(--text-primary);">💼 Professional Experience</h4>
+            <ul class="timeline-list">
+              <li class="timeline-item">
+                <span class="timeline-date">May 2023 – Present</span>
+                <span class="timeline-role">DevOps Engineer</span>
+                <span class="timeline-company">Bluetris Technologies Pvt. Ltd.</span>
+                <p class="timeline-desc">
+                  Design zero-downtime release cycles, manage infrastructure modules via Terraform, and optimize multi-cloud container groups.
+                </p>
+                
+                <!-- Timeline Projects Showcase -->
+                <div class="project-details-timeline">
+                  <div class="project-timeline-node">
+                    <div class="project-timeline-title">Fintech & Banking Platform Infrastructure</div>
+                    <p class="project-timeline-desc">Provisioned secure EKS networks with private API endpoints. Enabled AWS Cognito token filters, load balancers, and AWS KMS-secured secrets storage to satisfy banking compliance guidelines.</p>
+                  </div>
+                  <div class="project-timeline-node">
+                    <div class="project-timeline-title">High-Scale EdTech Ingestion Pipeline</div>
+                    <p class="project-timeline-desc">Automated task group scalability rules on Amazon ECS (Fargate) to absorb class traffic surges, and configured AWS Athena and Glue triggers to parse analytics logs.</p>
+                  </div>
+                  <div class="project-timeline-node">
+                    <div class="project-timeline-title">SaaS Observability Integration</div>
+                    <p class="project-timeline-desc">Configured ELK log routing pipelines and Prometheus data aggregators to monitor cluster status codes, and bound custom warning webhooks to Slack alerts.</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Non-prominent Education subsection -->
+          <div class="education-subcard">
+            <h4>🎓 Academic Background</h4>
+            <div class="education-degree">B.Tech in Computer Science</div>
+            <div class="education-details">Amity University (School of Engineering & Technology) | 2019 – 2023 | Grade: A++</div>
+          </div>
+        </div>
+
+        <div>
+          <!-- Right Sidebar: Certifications Only -->
+          <div class="certifications-container">
+            <h4>📜 Professional Certifications</h4>
+            <div class="certs-flex">
+              <div class="cert-card-item">
+                <span class="bullet"></span>
+                <span>Red Hat RHCSA (SysAdmin)</span>
+              </div>
+              <div class="cert-card-item">
+                <span class="bullet"></span>
+                <span>Microsoft AZ-104 (Azure Admin)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DevOps Capabilities Matrix Section -->
+    <section id="skills" class="skills-matrix-section scroll-reveal">
+      <div class="section-header">
+        <span class="section-subtitle">Technical Skillset</span>
+        <h2 class="section-title">DevOps Capabilities Matrix</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="skills-matrix-grid">
+        <!-- Card 1: Cloud Orchestration -->
+        <div class="skills-matrix-card">
+          <div class="matrix-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+            </svg>
+            <h3>Cloud & Containers</h3>
+          </div>
+          <div class="matrix-tools">
+            <h4>Platforms</h4>
+            <div class="matrix-tools-list">
+              AWS (ECS, Lambda, Glue, Athena), Azure (AKS, Virtual Networks), GCP (Artifact Registry, BigQuery), Kubernetes, Docker
+            </div>
+          </div>
+          <div class="matrix-tasks">
+            <h4>Automated Tasks & Operations</h4>
+            <ul class="tasks-list">
+              <li>Provision VPC subnets, private route tables, and firewall rules on AWS and Azure.</li>
+              <li>Deploy and auto-scale private Kubernetes nodes (EKS/AKS) to run containerized workloads.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 2: Infrastructure as Code -->
+        <div class="skills-matrix-card">
+          <div class="matrix-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+            <h3>Infrastructure as Code</h3>
+          </div>
+          <div class="matrix-tools">
+            <h4>Automation Engines</h4>
+            <div class="matrix-tools-list">
+              Terraform, Ansible, CloudFormation, Git Version Control
+            </div>
+          </div>
+          <div class="matrix-tasks">
+            <h4>Automated Tasks & Operations</h4>
+            <ul class="tasks-list">
+              <li>Build reusable, dry-run tested Terraform modules using S3 state locking.</li>
+              <li>Write Ansible playbooks to configure VM hosts and automate environment updates.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 3: Continuous Integration & Security -->
+        <div class="skills-matrix-card">
+          <div class="matrix-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h3>CI/CD & DevSecOps</h3>
+          </div>
+          <div class="matrix-tools">
+            <h4>Pipeline Tools</h4>
+            <div class="matrix-tools-list">
+              GitLab CI/CD, GitHub Actions, AWS CodeBuild, Jenkins, Trivy (Security), AWS Cognito (IAM)
+            </div>
+          </div>
+          <div class="matrix-tasks">
+            <h4>Automated Tasks & Operations</h4>
+            <ul class="tasks-list">
+              <li>Design GitLab CI pipelines for automated linting, testing, and container packaging.</li>
+              <li>Integrate static code analyzers and Trivy vulnerability scans into build cycles.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 4: Observability & Scripting -->
+        <div class="skills-matrix-card">
+          <div class="matrix-header">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <h3>Observability & Scripting</h3>
+          </div>
+          <div class="matrix-tools">
+            <h4>Telemetry & Coding</h4>
+            <div class="matrix-tools-list">
+              Prometheus, Grafana, ELK Stack, Datadog, AWS CloudWatch, Python, Bash Scripting
+            </div>
+          </div>
+          <div class="matrix-tasks">
+            <h4>Automated Tasks & Operations</h4>
+            <ul class="tasks-list">
+              <li>Configure FluentBit log collectors to index container outputs into ELK nodes.</li>
+              <li>Build Grafana telemetry displays for CPU, memory, and HTTP status metrics.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DevOps Tools Registry (Renamed as Skill Inventory / Production Toolset) -->
+    <section id="directory" class="tools-directory-section scroll-reveal">
+      <div class="section-header">
+        <span class="section-subtitle">Skill Inventory</span>
+        <h2 class="section-title">My Production-Tested Toolset</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="tools-directory-grid">
+        <!-- Category 1: Compute & Clusters -->
+        <div class="directory-category-card">
+          <h3>Compute & Clusters</h3>
+          <div class="directory-tools-list">
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Kubernetes</span>
+              <span class="directory-tool-tag">Orchestrator</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Amazon EKS</span>
+              <span class="directory-tool-tag">Managed K8s</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Azure AKS</span>
+              <span class="directory-tool-tag">Managed K8s</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Amazon ECS</span>
+              <span class="directory-tool-tag">Containers</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Docker</span>
+              <span class="directory-tool-tag">Runtimes</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">AWS Lambda</span>
+              <span class="directory-tool-tag">Serverless</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 2: IaC & Pipelines -->
+        <div class="directory-category-card">
+          <h3>IaC & CI/CD</h3>
+          <div class="directory-tools-list">
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Terraform</span>
+              <span class="directory-tool-tag">IaC Engine</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Ansible</span>
+              <span class="directory-tool-tag">Config Automation</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">CloudFormation</span>
+              <span class="directory-tool-tag">AWS Templates</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">GitLab CI/CD</span>
+              <span class="directory-tool-tag">Pipelines</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">GitHub Actions</span>
+              <span class="directory-tool-tag">Workflows</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Jenkins</span>
+              <span class="directory-tool-tag">Automation Server</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category 3: Observability, Query & Security -->
+        <div class="directory-category-card">
+          <h3>Data, Metrics & Security</h3>
+          <div class="directory-tools-list">
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Prometheus</span>
+              <span class="directory-tool-tag">Metrics Collector</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Grafana</span>
+              <span class="directory-tool-tag">Dashboards</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">ELK Stack</span>
+              <span class="directory-tool-tag">Log Indexing</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">AWS Cognito & IAM</span>
+              <span class="directory-tool-tag">Identity & Access</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">AWS Glue & Athena</span>
+              <span class="directory-tool-tag">ETL & Query</span>
+            </div>
+            <div class="directory-tool-row">
+              <span class="directory-tool-name">Python & Bash</span>
+              <span class="directory-tool-tag">Automation Scripting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section scroll-reveal">
+      <div class="section-header">
+        <span class="section-subtitle">Systems Showcase</span>
+        <h2 class="section-title">DevOps Architectures & Specifications</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="systems-showcase-container">
+        <!-- System 1: Multi-Cloud EKS/AKS -->
+        <article class="system-block">
+          <div class="system-visual-panel">
+            <span class="tag">IaC / Multi-Cloud</span>
+            <h3>Multi-Cloud Cluster Provisioning (EKS / AKS)</h3>
+            <p>Automated cloud infrastructure provisioning using Terraform. Provisions network subnets, firewalls, routing guidelines, and secure container runtimes across AWS and Azure.</p>
+            
+            <div class="system-ascii-card">
+              <div class="system-ascii-header">
+                <span class="status-dot"></span>
+                <span>cat multi_cloud_architecture.txt</span>
+              </div>
+              <div class="system-ascii-body">
+                <pre class="ascii-diagram">
+[Developer] ── Git Push ──> [GitLab CI] ── Trigger ──> [Terraform Apply]
+                                                             │
+                                       ┌─────────────────────┴─────────────────────┐
+                                       ▼                                           ▼
+                               [AWS Cloud Platform]                        [Azure Platform]
+                               ├── VPC (10.0.0.0/16)                       ├── VNet (172.16.0.0/16)
+                               ├── Private Subnets                         ├── Private Subnets
+                               └── EKS Core Cluster                        └── AKS Core Cluster</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="system-specs-panel">
+            <h4>System Parameters & Specs</h4>
+            <div class="spec-rows-container">
+              <div class="spec-row">
+                <span class="spec-title">IaC Engine:</span>
+                <span class="spec-desc">Terraform (remote S3 / DynamoDB backend).</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-title">Cloud Infrastructure:</span>
+                <span class="spec-desc">Private VPC/VNet peering, NAT Gateways, private subnets, EKS & AKS clusters.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-title">Security Policies:</span>
+                <span class="spec-desc">Private Endpoint access only. API endpoints restricted to bastion networks. Secrets encrypted via KMS.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- System 2: Zero-Downtime CI/CD -->
+        <article class="system-block">
+          <div class="system-visual-panel">
+            <span class="tag">CI/CD / DevSecOps</span>
+            <h3>Zero-Downtime Delivery Pipeline</h3>
+            <p>Continuous deployment pipelines configured to compile, package, scan, and deploy microservices workloads onto Amazon ECS serverless Fargate instances with zero downtime.</p>
+            
+            <div class="system-ascii-card">
+              <div class="system-ascii-header">
+                <span class="status-dot"></span>
+                <span>cat deployment_pipeline.txt</span>
+              </div>
+              <div class="system-ascii-body">
+                <pre class="ascii-diagram">
+[Commit] ──> [Static Analysis (Linter)] ──> [SAST Code Scan] ──> [Docker Build & Tag]
+                                                                            │
+                                                                     [Push to Registry]
+                                                                            │
+                                                                     [CodeBuild Hook]
+                                                                            │
+                                                                 [ECS Rolling Deploy]
+                                                                 (0% Downtime Rolling)</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="system-specs-panel">
+            <h4>Pipeline Parameters & Specs</h4>
+            <div class="spec-rows-container">
+              <div class="spec-row">
+                <span class="spec-title">CI Engine & Runners:</span>
+                <span class="spec-desc">GitLab CI triggers. AWS CodeBuild handles isolated image compile tasks inside VPC security layers.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-title">Deployment Platform:</span>
+                <span class="spec-desc">Amazon ECS running with serverless AWS Fargate tasks.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-title">Rollout Strategy:</span>
+                <span class="spec-desc">Rolling Deploy (100% min tasks active / 200% max tasks limit) ensuring zero downtime.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- System 3: Observability & ChatOps -->
+        <article class="system-block">
+          <div class="system-visual-panel">
+            <span class="tag">Observability / ChatOps</span>
+            <h3>Observability & ChatOps Console</h3>
+            <p>Integrated metric extraction, log indexing, graphical dashboards, and webhook alerting scripts to monitor cloud workloads and report incidents to team Slack rooms.</p>
+            
+            <div class="system-ascii-card">
+              <div class="system-ascii-header">
+                <span class="status-dot"></span>
+                <span>cat observability_flow.txt</span>
+              </div>
+              <div class="system-ascii-body">
+                <pre class="ascii-diagram">
+[AKS/ECS Workloads] ── Scrape (Prometheus) ──> [Metrics TSDB] ──────┐
+[System Event Logs] ── Collect (FluentBit) ──> [Elasticsearch] ────┼──> [Grafana Charts]
+                                                                     │
+                                                               [Alertmanager]
+                                                                     │
+                                                               [Slack Webhook]
+                                                                     ▼
+                                                            [Slack #devops-alerts]</pre>
+              </div>
+            </div>
+          </div>
+
+          <div class="system-specs-panel">
+            <h4>Observability Parameters & Specs</h4>
+            <div class="spec-rows-container">
+              <div class="spec-row">
+                <span class="spec-title">Metrics & Logs:</span>
+                <span class="spec-desc">Prometheus agents scrape container metrics; FluentBit daemons forward logs to Elasticsearch.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-title">Telemetry UI:</span>
+                <span class="spec-desc">Grafana dashboard layers mapping RAM/CPU thresholds and API response codes.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-title">Incident Alerts:</span>
+                <span class="spec-desc">Alertmanager configurations evaluating alerting rules and pushing event alerts to Slack webhooks.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact Section (Renamed Handshake & Simplified Inputs) -->
+    <section id="contact" class="contact-section scroll-reveal">
+      <div class="section-header">
+        <span class="section-subtitle">Connection Handshake</span>
+        <h2 class="section-title">Establish a Connection</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="contact-container">
+        <!-- Contact Info / Details -->
+        <div class="contact-info-panel">
+          <h3>Let's build reliable platforms.</h3>
+          <div class="contact-details">
+            <div class="detail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span>linkedin.com/in/nagabairu-manoj</span>
+            </div>
+            <div class="detail-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Jaipur, Rajasthan, India</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compact Stacked Form -->
+        <form id="contact-form" action="https://formspree.io/f/your_formspree_id_here" method="POST" class="contact-form">
+          <div class="form-group">
+            <label for="name">Sender Name</label>
+            <input type="text" id="name" name="name" required placeholder="User / Client Name">
+          </div>
+          <div class="form-group">
+            <label for="email">Reply Endpoint (Email)</label>
+            <input type="email" id="email" name="_replyto" required placeholder="name@domain.com">
+          </div>
+          <div class="form-group">
+            <label for="message">One-Liner Payload (Message)</label>
+            <input type="text" id="message" name="message" required placeholder="Project details, hiring notes, or a quick hello...">
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">
+            <span>Dispatch Ticket</span>
+            <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+          <div id="form-status" class="form-status"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2026 Nagabairu Manoj. Built with HTML, CSS, JS, and Docker.</p>
+      <div class="footer-links">
+        <a href="#home">Back to top</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS Module Script -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
