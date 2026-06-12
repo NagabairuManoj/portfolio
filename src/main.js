@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       { text: '  >> Repository: NagabairuManoj/demo-failing-infrastructure', style: 'color: #94a3b8;', delay: 400 },
       { text: '  >> Job: "Terraform Plan"', style: 'color: #94a3b8;', delay: 300 },
       { text: '[14:16:33] [LOGS] Downloading job logs from GitHub API...', style: 'color: #a7f3d0;', delay: 700 },
-      { text: '[14:16:34] [LOGS] Log preprocessor completed. Parsing logs for error stack...', style: 'color: #a7f3d0;', delay: 600 },
+      { text: '[14:16:34] [LOGS] Log preprocessor completed. Stack identified: Python/Docker/Terraform.', style: 'color: #a7f3d0;', delay: 600 },
       { text: '  >> ERROR DETECTED: [Terraform Plan failed]', style: 'color: #f87171;', delay: 400 },
       { text: '  >> Error: Reference to undeclared input variable "bucket_name" at main.tf line 12.', style: 'color: #f87171; font-weight: 500;', delay: 300 },
       { text: '[14:16:35] [DIAGNOSTIC] Querying Gemini 2.5 Flash API with SRE Troubleshooting Profile...', style: 'color: #fbbf24;', delay: 900 },

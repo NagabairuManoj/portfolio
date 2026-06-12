@@ -441,10 +441,10 @@
           <div class="system-visual-panel">
             <span class="tag">AI-Driven SRE / Event-Driven Automation</span>
             <h3>SRE Self-Healing CI/CD Pipeline Agent</h3>
-            <p>An intelligent self-healing automation agent that listens to GitHub Actions failures via webhooks, preprocesses build logs, diagnoses root-cause errors via Gemini 2.5 Flash API, keylessly authenticates to GCP, and automatically opens Pull Requests with the code correction (e.g. Terraform HCL repairs) to resolve pipeline breakage.</p>
+            <p>An intelligent self-healing automation agent that listens to GitHub Actions failures via webhooks, preprocesses build logs, diagnoses root-cause errors via Gemini 2.5 Flash API, keylessly authenticates to GCP, and automatically opens Pull Requests with the code correction (e.g., repairing Python scripts, Dockerfiles, Terraform configurations, or shell scripts) to resolve pipeline breakage.</p>
             
             <div class="project-repo-link-chips">
-              <a href="https://pipeline-agent.tech/" target="_blank" rel="noopener noreferrer" class="repo-chip">
+              <a href="https://pipeline-agent.tech/" target="_blank" rel="noopener noreferrer" class="repo-chip highlighted-chip">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
@@ -473,7 +473,7 @@
               </div>
               <div class="system-ascii-body">
                 <div class="simulation-terminal" id="sre-sim-terminal">
-                  <span style="color: #64748b;">// Press the trigger button below to simulate a live GHA self-healing cycle...</span>
+                  <span style="color: #64748b;">// Press the button below to view a working example of this agent resolving a pipeline failure in real time...</span>
                 </div>
                 <button class="sim-trigger-btn" id="sre-sim-btn">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -496,7 +496,7 @@
               </div>
               <div class="spec-row">
                 <span class="spec-title">AI Engine:</span>
-                <span class="spec-desc">Gemini 2.5 Flash API parsing preprocessed execution logs and generating target HCL/code diffs.</span>
+                <span class="spec-desc">Gemini 2.5 Flash API parsing preprocessed execution logs and generating target code patches (Python, Dockerfiles, Terraform, or Bash configurations).</span>
               </div>
               <div class="spec-row">
                 <span class="spec-title">Integration Layer:</span>
