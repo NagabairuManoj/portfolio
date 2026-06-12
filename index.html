@@ -436,6 +436,76 @@
       </div>
 
       <div class="systems-showcase-container">
+        <!-- Featured System: SRE Self-Healing CI/CD Pipeline Agent -->
+        <article class="system-block featured-block">
+          <div class="system-visual-panel">
+            <span class="tag">AI-Driven SRE / Event-Driven Automation</span>
+            <h3>SRE Self-Healing CI/CD Pipeline Agent</h3>
+            <p>An intelligent self-healing automation agent that listens to GitHub Actions failures via webhooks, preprocesses build logs, diagnoses root-cause errors via Gemini 2.5 Flash API, keylessly authenticates to GCP, and automatically opens Pull Requests with the code correction (e.g. Terraform HCL repairs) to resolve pipeline breakage.</p>
+            
+            <div class="project-repo-link-chips">
+              <a href="https://pipeline-agent.tech/" target="_blank" rel="noopener noreferrer" class="repo-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <span>Live Dashboard (pipeline-agent.tech)</span>
+              </a>
+              <a href="https://github.com/NagabairuManoj/sre-agent-backend" target="_blank" rel="noopener noreferrer" class="repo-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>Backend (sre-agent-backend)</span>
+              </a>
+              <a href="https://github.com/NagabairuManoj/sre-agent-frontend" target="_blank" rel="noopener noreferrer" class="repo-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>Frontend (sre-agent-frontend)</span>
+              </a>
+              <a href="https://github.com/NagabairuManoj/portfolio" target="_blank" rel="noopener noreferrer" class="repo-chip">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                <span>Portfolio Repo</span>
+              </a>
+            </div>
+            
+            <div class="system-ascii-card" style="margin-top: 1.5rem;">
+              <div class="system-ascii-header">
+                <span class="status-dot"></span>
+                <span>sre-agent@pipeline-agent.tech:~</span>
+              </div>
+              <div class="system-ascii-body">
+                <div class="simulation-terminal" id="sre-sim-terminal">
+                  <span style="color: #64748b;">// Press the trigger button below to simulate a live GHA self-healing cycle...</span>
+                </div>
+                <button class="sim-trigger-btn" id="sre-sim-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 14px; height: 14px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  <span>Execute Self-Healing Diagnostics</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="system-specs-panel">
+            <h4>System Architecture & Specs</h4>
+            <div class="spec-rows-container">
+              <div class="spec-row">
+                <span class="spec-title">Architecture Pattern:</span>
+                <span class="spec-desc">Serverless GCP Event-Driven architecture utilizing Cloud Run, Cloud Tasks, and Workload Identity keyless authentication.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-title">Data Store:</span>
+                <span class="spec-desc">PostgreSQL database managing repo configurations, custom SRE troubleshooting profiles, and healing history runs.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-title">AI Engine:</span>
+                <span class="spec-desc">Gemini 2.5 Flash API parsing preprocessed execution logs and generating target HCL/code diffs.</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-title">Integration Layer:</span>
+                <span class="spec-desc">PyGithub API handling repo checkout, automated code editing/patching, branch commits, and pull request generation.</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
         <!-- System 1: Multi-Cloud EKS/AKS -->
         <article class="system-block">
           <div class="system-visual-panel">

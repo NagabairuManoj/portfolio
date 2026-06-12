@@ -254,4 +254,103 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  /* ==========================================================================
+     SRE SELF-HEALING DIAGNOSTICS TERMINAL SIMULATOR
+     ========================================================================== */
+  const sreSimBtn = document.getElementById('sre-sim-btn');
+  const sreSimTerminal = document.getElementById('sre-sim-terminal');
+
+  if (sreSimBtn && sreSimTerminal) {
+    const logSequence = [
+      { text: 'sre-agent@pipeline-agent.tech:~$ trigger-healing-simulation --run-id=27345717969', style: 'color: #94a3b8; font-weight: bold;', delay: 200 },
+      { text: '[14:16:32] [WEBHOOK] Received failure trigger for GHA run #27345717969', style: 'color: #38bdf8;', delay: 800 },
+      { text: '  >> Repository: NagabairuManoj/demo-failing-infrastructure', style: 'color: #94a3b8;', delay: 400 },
+      { text: '  >> Job: "Terraform Plan"', style: 'color: #94a3b8;', delay: 300 },
+      { text: '[14:16:33] [LOGS] Downloading job logs from GitHub API...', style: 'color: #a7f3d0;', delay: 700 },
+      { text: '[14:16:34] [LOGS] Log preprocessor completed. Parsing logs for error stack...', style: 'color: #a7f3d0;', delay: 600 },
+      { text: '  >> ERROR DETECTED: [Terraform Plan failed]', style: 'color: #f87171;', delay: 400 },
+      { text: '  >> Error: Reference to undeclared input variable "bucket_name" at main.tf line 12.', style: 'color: #f87171; font-weight: 500;', delay: 300 },
+      { text: '[14:16:35] [DIAGNOSTIC] Querying Gemini 2.5 Flash API with SRE Troubleshooting Profile...', style: 'color: #fbbf24;', delay: 900 },
+      { text: '[14:16:36] [DIAGNOSTIC] Analysis complete. Root cause: Missing variable declaration in variables.tf.', style: 'color: #fbbf24;', delay: 800 },
+      { text: '[14:16:37] [HEAL] Authenticating keylessly to Google Cloud Platform...', style: 'color: #38bdf8;', delay: 700 },
+      { text: '  >> Impersonating GCP service account via Workload Identity Pool: sre-agent-pool', style: 'color: #94a3b8;', delay: 400 },
+      { text: '[14:16:38] [HEAL] Cloning repository and checking out repair branch: fix/failed-run-27345717969', style: 'color: #e2e8f0;', delay: 800 },
+      { text: '[14:16:39] [HEAL] Writing variables.tf patch content to repository workspace...', style: 'color: #e2e8f0;', delay: 500 },
+      { text: '[14:16:40] [PATCH] Proposed code additions (diff variables.tf):', style: 'color: #10b981; font-weight: bold;', delay: 300 },
+      { text: '+ variable "bucket_name" {', style: 'color: #10b981;', isDiff: true, delay: 200 },
+      { text: '+   type        = string', style: 'color: #10b981;', isDiff: true, delay: 100 },
+      { text: '+   description = "The name of the private S3 bucket"', style: 'color: #10b981;', isDiff: true, delay: 100 },
+      { text: '+ }', style: 'color: #10b981;', isDiff: true, delay: 150 },
+      { text: '[14:16:41] [GIT] Committing patch changes & pushing upstream...', style: 'color: #a7f3d0;', delay: 800 },
+      { text: '[14:16:42] [SUCCESS] Self-healing resolved pipeline breakage!', style: 'color: #34d399; font-weight: bold;', delay: 600 },
+      { text: '[SUCCESS] Pull Request #5 successfully generated:', style: 'color: #34d399; font-weight: bold;', delay: 200 },
+      { text: '  >> URL: https://github.com/NagabairuManoj/demo-failing-infrastructure/pull/5', style: 'color: #60a5fa; text-decoration: underline;', isLink: true, href: 'https://github.com/NagabairuManoj/demo-failing-infrastructure/pull/5', delay: 200 }
+    ];
+
+    let running = false;
+
+    sreSimBtn.addEventListener('click', () => {
+      if (running) return;
+      running = true;
+      sreSimBtn.disabled = true;
+      sreSimBtn.style.opacity = '0.5';
+      sreSimBtn.style.cursor = 'not-allowed';
+      
+      // Clear terminal
+      sreSimTerminal.innerHTML = '';
+      
+      let currentIdx = 0;
+      
+      function printNextLine() {
+        if (currentIdx >= logSequence.length) {
+          running = false;
+          sreSimBtn.disabled = false;
+          sreSimBtn.style.opacity = '1';
+          sreSimBtn.style.cursor = 'pointer';
+          sreSimBtn.querySelector('span').textContent = 'Rerun Diagnostics';
+          
+          // Append success badge
+          const badgeContainer = document.createElement('div');
+          const badge = document.createElement('span');
+          badge.className = 'sim-badge-alert';
+          badge.textContent = 'PULL REQUEST #5 GENERATED';
+          badgeContainer.appendChild(badge);
+          sreSimTerminal.appendChild(badgeContainer);
+          sreSimTerminal.scrollTop = sreSimTerminal.scrollHeight;
+          return;
+        }
+        
+        const log = logSequence[currentIdx];
+        const lineEl = document.createElement('div');
+        lineEl.className = 'sim-log-line';
+        if (log.style) {
+          lineEl.setAttribute('style', log.style);
+        }
+        if (log.isDiff) {
+          lineEl.classList.add('sim-diff-add');
+        }
+        
+        if (log.isLink) {
+          const a = document.createElement('a');
+          a.href = log.href;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.textContent = log.text;
+          a.style.color = 'inherit';
+          lineEl.appendChild(a);
+        } else {
+          lineEl.textContent = log.text;
+        }
+        
+        sreSimTerminal.appendChild(lineEl);
+        sreSimTerminal.scrollTop = sreSimTerminal.scrollHeight;
+        
+        currentIdx++;
+        setTimeout(printNextLine, log.delay);
+      }
+      
+      printNextLine();
+    });
+  }
 });
