@@ -1,0 +1,139 @@
+---
+import Base from '../../layouts/Base.astro';
+import SchematicSvg from '../../components/SchematicSvg.astro';
+import { projects, withBase } from '../../data/site';
+
+export function getStaticPaths() {
+  return projects.map((project, index) => ({
+    params: { slug: project.slug },
+    props: {
+      project,
+      prevProject: projects[(index - 1 + projects.length) % projects.length],
+      nextProject: projects[(index + 1) % projects.length],
+    },
+  }));
+}
+
+const { project, prevProject, nextProject } = Astro.props;
+
+const trimWords = (text: string, max: number, addPeriod = false): string => {
+  if (text.length <= max) return text;
+  const sliced = text.slice(0, max - (addPeriod ? 1 : 0));
+  const cut = sliced.lastIndexOf(' ');
+  const base = (cut > 20 ? sliced.slice(0, cut) : sliced).replace(/[,:;.\s-]+$/, '');
+  return addPeriod ? `${base}.` : base;
+};
+
+const shortTitle = trimWords(`${project.code}: ${project.title}`, 49);
+const metaDescription = trimWords(project.summary, 156, true);
+---
+
+<Base title={shortTitle} description={metaDescription}>
+  <article>
+    <header class="case-hero">
+      <div class="wrap">
+        <div style="margin-bottom:1rem;">
+          <a href={`${withBase('/')}#projects`} class="btn btn--outline mono" data-fill style="font-size:0.78rem;">
+            <span class="btn__fill" aria-hidden="true"></span>
+            <span>← All 16 system routes</span>
+          </a>
+        </div>
+
+        <div class="hero__meta-row" data-intro>
+          <span class="route-code">{project.code}</span>
+          <span class="cloud-tag">{project.cloud}</span>
+          <span>{project.domain}</span>
+        </div>
+
+        <h1 class="hero__title" style="font-size: var(--t-xl); margin-top:0.85rem; max-width:24ch;" data-split="lines" data-intro>
+          {project.title}
+        </h1>
+
+        <p class="hero__lead" style="margin-top:1rem; max-width:58ch;">
+          {project.summary}
+        </p>
+
+        <div class="case-meta-grid">
+          <div class="case-meta-cell">
+            <span>CLOUD ENVIRONMENT</span>
+            <strong>{project.cloud}</strong>
+          </div>
+          <div class="case-meta-cell">
+            <span>INDUSTRY DOMAIN</span>
+            <strong>{project.domain}</strong>
+          </div>
+          <div class="case-meta-cell">
+            <span>VERIFIED OUTCOME</span>
+            <strong style="color: var(--c-signal);">{project.metric}</strong>
+          </div>
+          <div class="case-meta-cell">
+            <span>CONFIDENTIALITY</span>
+            <strong>NDA-Safe Case Study</strong>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section-pad">
+      <div class="wrap" style="display:grid; gap:2.5rem;">
+        <div class="case-schematic-stage" style="background: var(--c-curtain); padding: clamp(1rem, 2.5vw, 2rem); border: 1px solid var(--c-fg);">
+          <div class="schematic-bar" style="margin-bottom:1rem;">
+            <span>PRODUCTION TOPOLOGY SCHEMATIC</span>
+            <span style="color: var(--c-trace);">{project.diagramTitle}</span>
+          </div>
+          <SchematicSvg project={project} animate={true} />
+        </div>
+
+        <div class="case-body-grid">
+          <div class="case-block">
+            <h2>01. Problem Context</h2>
+            <p>{project.challenge}</p>
+          </div>
+          <div class="case-block">
+            <h2>02. Engineered Architecture</h2>
+            <p>{project.architecture}</p>
+          </div>
+          <div class="case-block case-block--outcome">
+            <h2>03. Measured Impact</h2>
+            <p>{project.outcome}</p>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="mono" style="font-size:0.78rem; text-transform:uppercase; margin-bottom:0.85rem; color: var(--c-accent);">
+            Production Technology Stack
+          </h2>
+          <div style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+            {project.stack.map((tool) => <span class="mini-pill" style="font-size:0.8rem; padding:0.35rem 0.7rem;">{tool}</span>)}
+          </div>
+        </div>
+
+        {
+          project.links && project.links.length > 0 && (
+            <div style="display:flex; flex-wrap:wrap; gap:0.75rem;">
+              {project.links.map((link) => (
+                <a href={link.href} target="_blank" rel="noopener noreferrer" class="btn btn--primary" data-fill>
+                  <span class="btn__fill" aria-hidden="true"></span>
+                  <span>{link.label}</span>
+                  <span class="btn__arrow" aria-hidden="true">↗</span>
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </div>
+    </section>
+
+    <nav class="wrap case-nav" aria-label="Case study pagination">
+      <a href={withBase(`/work/${prevProject.slug}/`)} class="btn btn--outline" data-fill>
+        <span class="btn__fill" aria-hidden="true"></span>
+        <span>← {prevProject.code}: {prevProject.cloud}</span>
+      </a>
+      <a href={withBase(`/work/${nextProject.slug}/`)} class="btn btn--primary" data-fill>
+        <span class="btn__fill" aria-hidden="true"></span>
+        <span>Next: {nextProject.code} ({nextProject.cloud})</span>
+        <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+    </nav>
+  </article>
+</Base>

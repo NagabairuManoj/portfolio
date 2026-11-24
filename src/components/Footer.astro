@@ -1,0 +1,44 @@
+---
+import { site, withBase } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="mono" style="font-size:0.75rem; color: var(--c-verified); margin-bottom:0.6rem;">
+          AVAILABLE FOR LEAD CLOUD, DEVOPS &amp; SRE ROLES
+        </div>
+        <div class="footer-wordmark">{site.name}</div>
+      </div>
+
+      <ul class="footer-links">
+        <li>
+          <a href={`mailto:${site.email}`}>
+            <span class="footer-link__text">Email me</span>
+          </a>
+        </li>
+        <li>
+          <a href={site.socials[0].href} target="_blank" rel="noopener noreferrer">
+            <span class="footer-link__text">LinkedIn ↗</span>
+          </a>
+        </li>
+        <li>
+          <a href={site.socials[1].href} target="_blank" rel="noopener noreferrer">
+            <span class="footer-link__text">GitHub ↗</span>
+          </a>
+        </li>
+        <li>
+          <a href={withBase(site.resumePath)} target="_blank" rel="noopener noreferrer">
+            <span class="footer-link__text">Resume PDF ↗</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="footer-bottom">
+      <span>{site.company.name} ({site.company.period}) | {site.location}</span>
+      <span>100% NDA-Compliant Architecture Portfolio | AWS, Azure, GCP &amp; Sovereign Cloud</span>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../data/site';
+---
+
+<Base title="404 Route Not Found" description="Requested control plane route was not found in the portfolio registry.">
+  <section class="section-pad" style="min-height: 62dvh; display: grid; align-items: center;">
+    <div class="wrap">
+      <div class="mono" style="font-size:0.78rem; color: var(--c-accent); margin-bottom:0.85rem;">
+        HTTP 404 // ROUTE UNMAPPED IN CONTROL PLANE
+      </div>
+      <h1 class="hero__title" style="font-size: var(--t-xl); max-width: 18ch;" data-split="lines" data-intro>
+        Target route does not exist.
+      </h1>
+      <p class="hero__lead" style="margin-top:1rem; margin-bottom:1.75rem;">
+        The Ingress controller returned 404 for this path. Return to the main routing ledger to inspect all 16 documented architectures.
+      </p>
+      <a href={withBase('/')} class="btn btn--primary" data-fill>
+        <span class="btn__fill" aria-hidden="true"></span>
+        <span>Return to control plane</span>
+        <span class="btn__arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+</Base>

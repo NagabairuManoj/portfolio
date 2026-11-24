@@ -1,0 +1,92 @@
+---
+import { site, withBase } from '../data/site';
+
+interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '/' } = Astro.props;
+const normalize = (p: string) => p.replace(/\/+$/, '') || '/';
+const active = normalize(currentPath);
+
+const links = [
+  { label: 'Work', href: `${withBase('/')}#projects`, match: withBase('/') },
+  { label: 'AI-SRE', href: `${withBase('/')}#ai-sre`, match: '#ai-sre' },
+  { label: 'About', href: withBase('/about/'), match: withBase('/about') },
+  { label: 'Contact', href: `${withBase('/')}#contact`, match: '#contact' },
+];
+---
+
+<header class="site-header">
+  <div class="wrap header-bar">
+    <a href={withBase('/')} class="brand-mark">
+      <span class="brand-code">SYS:16</span>
+      <span class="brand-name">{site.shortName}</span>
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary navigation">
+      {
+        links.map((item) => {
+          const isCurrent = normalize(item.match) === active && !item.match.startsWith('#');
+          return (
+            <a
+              href={item.href}
+              class="nav-link"
+              aria-current={isCurrent ? 'page' : undefined}
+            >
+              <span class="nav-link__text">{item.label}</span>
+            </a>
+          );
+        })
+      }
+      <a
+        href={withBase(site.resumePath)}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn--outline"
+        data-fill
+      >
+        <span class="btn__fill" aria-hidden="true"></span>
+        <span>Resume PDF</span>
+        <span class="btn__arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+
+    <button
+      type="button"
+      class="menu-btn"
+      aria-expanded="false"
+      aria-controls="menu"
+      data-menu-open
+    >
+      Menu
+    </button>
+  </div>
+</header>
+
+<nav id="menu" class="mobile-menu" hidden aria-label="Mobile navigation overlay">
+  <div class="mobile-menu__head">
+    <span class="mono" style="font-size:0.78rem;">CONTROL PLANE ROUTES</span>
+    <button type="button" class="mobile-menu__close" data-menu-close aria-label="Close navigation menu">
+      Close
+    </button>
+  </div>
+
+  <ul class="mobile-menu__links">
+    <li><a href={withBase('/')}><span>Overview</span><span class="mono" style="font-size:0.85rem;">01</span></a></li>
+    <li><a href={`${withBase('/')}#projects`}><span>16 Systems</span><span class="mono" style="font-size:0.85rem;">02</span></a></li>
+    <li><a href={`${withBase('/')}#ai-sre`}><span>AI-SRE Agent</span><span class="mono" style="font-size:0.85rem;">03</span></a></li>
+    <li><a href={withBase('/about/')}><span>About &amp; Stack</span><span class="mono" style="font-size:0.85rem;">04</span></a></li>
+    <li><a href={`${withBase('/')}#contact`}><span>Contact</span><span class="mono" style="font-size:0.85rem;">05</span></a></li>
+    <li>
+      <a href={withBase(site.resumePath)} target="_blank" rel="noopener noreferrer">
+        <span>Resume PDF</span>
+        <span class="mono" style="font-size:0.85rem;">PDF ↗</span>
+      </a>
+    </li>
+  </ul>
+
+  <div class="mono" style="font-size:0.74rem; color: var(--c-dark-muted);">
+    {site.email} | {site.location}
+  </div>
+</nav>

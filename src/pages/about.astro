@@ -1,0 +1,120 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, withBase } from '../data/site';
+
+const aboutDesc =
+  'Production background of Nagabairu Manoj at Bluetris Technologies, verified certifications (RHCSA, AZ-104, AZ-900), and full 8-pillar DevOps stack.';
+---
+
+<Base title="About & Stack" description={aboutDesc}>
+  <section class="case-hero">
+    <div class="wrap grid-12">
+      <div class="about-copy">
+        <div class="hero__meta-row" data-intro>
+          <span>CONSULTING BACKGROUND</span>
+          <span>{site.company.period}</span>
+        </div>
+        <h1 class="hero__title" style="font-size: var(--t-xl); margin-top:0.85rem;" data-split="lines" data-intro>
+          Cloud reliability, cost discipline, and production governance.
+        </h1>
+        <p class="hero__lead" style="margin-top:1.1rem;">
+          Over the past 3.5+ years at <strong>{site.company.name}</strong>, I have designed, migrated, hardened, and monitored production systems across more than 15 enterprise client engagements. Every metric published on this site is strictly real, and client names remain confidential under NDA.
+        </p>
+      </div>
+
+      <aside class="about-aside">
+        <h2 class="mono" style="font-size:0.76rem; color: var(--c-accent); margin-bottom:1rem;">VERIFIED CREDENTIALS</h2>
+        <ul style="list-style:none; padding:0; display:grid; gap:0.85rem;">
+          {
+            site.certifications.map((c) => (
+              <li style="border-bottom: 1px solid var(--c-line); padding-bottom:0.65rem;">
+                <strong style="display:block; font-size:0.95rem;">{c.name}</strong>
+                <span class="mono" style="font-size:0.75rem; color: var(--c-muted);">{c.detail}</span>
+              </li>
+            ))
+          }
+          <li>
+            <strong style="display:block; font-size:0.95rem;">{site.education.degree}</strong>
+            <span class="mono" style="font-size:0.75rem; color: var(--c-muted);">
+              {site.education.school} ({site.education.period}) | {site.education.score}
+            </span>
+          </li>
+        </ul>
+
+        <div style="margin-top:1.25rem;">
+          <a href={withBase(site.resumePath)} target="_blank" rel="noopener noreferrer" class="btn btn--primary" data-fill style="width:100%;">
+            <span class="btn__fill" aria-hidden="true"></span>
+            <span>Download updated ATS resume</span>
+            <span class="btn__arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section-pad" style="border-bottom: 1px solid var(--c-line);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-head__title" data-split="lines">Consultancy timeline at Bluetris Technologies.</h2>
+        <p class="section-head__desc">
+          Chronological progression from Day-0 AWS automation to multi-cloud FinOps, sovereign air-gapped Kubernetes, and autonomous AI-SRE engineering.
+        </p>
+      </div>
+
+      <ol class="timeline-grid">
+        <li class="timeline-card" data-reveal="up">
+          <span class="mono timeline-card__period">2023 Q2 - Q4</span>
+          <h3>Day-0 AWS IaC &amp; Zero-SSH Foundations</h3>
+          <p>
+            Authored 7-layer modular AWS CloudFormation infrastructure, eliminated Port 22 SSH behind AWS SSM Session Manager, and hardened Jenkins/Harbor/CI release pipelines across logistics and travel workloads.
+          </p>
+        </li>
+        <li class="timeline-card" data-reveal="up">
+          <span class="mono timeline-card__period">2024 Q1 - Q4</span>
+          <h3>Kubernetes, DevSecOps &amp; Sovereign Cloud</h3>
+          <p>
+            Operated production EKS, AKS + Istio Internal Load Balancer meshes, and dual 8-node bare-metal containerd clusters on NIC Meghraj Sovereign Cloud while governing security across 1,300+ GitHub repositories with Apiiro ASPM and Snyk.
+          </p>
+        </li>
+        <li class="timeline-card" data-reveal="up">
+          <span class="mono timeline-card__period">2025 Q1 - Q4</span>
+          <h3>Multi-Region GCP DR &amp; BigQuery FinOps</h3>
+          <p>
+            Architected active dual-region GCP Hub-and-Spoke DR (Mumbai DC / Delhi DR, RPO &lt;= 15 min) for 4.5M+ monthly requests and cut BigQuery observability spend by 97.5% ($12,000/mo to $300/mo) across 35+ Airflow DAGs.
+          </p>
+        </li>
+        <li class="timeline-card" data-reveal="up">
+          <span class="mono timeline-card__period">2026 Q1 - PRESENT</span>
+          <h3>Tri-Cloud FinOps &amp; Autonomous AI-SRE</h3>
+          <p>
+            Delivered 79% GKE compute reduction ($158.4K/yr) with 4-VPC air-gapped isolation and 1.7TB MongoDB cutover, authored an INR 2.06 Cr Azure Landing Zone FinOps roadmap across 10 subscriptions, and launched pipeline-agent.tech.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-head__title" data-split="lines">Production toolset across 8 domains.</h2>
+        <p class="section-head__desc">
+          Tools operated in real production engagements, spanning AWS, Azure, GCP, Sovereign Cloud, AI/ML workloads, Kubernetes, CI/CD, and data infrastructure.
+        </p>
+      </div>
+
+      <div class="tool-matrix">
+        {
+          site.toolset.map((group) => (
+            <div class="tool-box" data-reveal="up">
+              <h3>{group.category}</h3>
+              <div style="display:flex; flex-wrap:wrap; gap:0.38rem;">
+                {group.items.map((item) => <span class="mini-pill">{item}</span>)}
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,581 @@
+---
+import Base from '../layouts/Base.astro';
+import SchematicSvg from '../components/SchematicSvg.astro';
+import { site, projects, withBase } from '../data/site';
+
+const heroMetaDescription =
+  'Lead Cloud, DevOps and FinOps Architect: 15+ production systems across AWS, Azure, GCP and Sovereign Cloud, plus live AI-SRE automation.';
+
+const simAgent = projects.find((p) => p.code === 'PRJ-00')!;
+const defaultInspected = projects[0];
+---
+
+<Base description={heroMetaDescription}>
+  <!-- 1. Hero Poster & Live Routing Control Plane -->
+  <section class="hero" id="top">
+    <div class="wrap grid-12">
+      <div class="hero__copy">
+        <div>
+          <div class="hero__meta-row" data-intro>
+            <span><span class="status-dot" aria-hidden="true"></span>3.5+ YRS PRODUCTION CONSULTING</span>
+            <span>AWS | AZURE | GCP | SOVEREIGN CLOUD</span>
+          </div>
+
+          <h1 class="hero__title" data-split="lines" data-intro style="margin-top:0.85rem;">
+            {site.name}
+          </h1>
+
+          <p class="hero__lead" style="margin-top:1.15rem;">
+            I design and operate <strong>scalable AWS, Azure, GCP, and sovereign cloud systems</strong> across <strong>15+ enterprise client engagements</strong> at {site.company.name}, pairing Infrastructure as Code and Kubernetes with verified FinOps savings and AI-driven SRE automation.
+          </p>
+        </div>
+
+        <div>
+          <div class="hero__actions" data-intro data-reveal="up" data-delay="0.18">
+            <a href="#projects" class="btn btn--primary" data-fill>
+              <span class="btn__fill" aria-hidden="true"></span>
+              <span>Inspect all 16 systems</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a href="#ai-sre" class="btn btn--outline" data-fill>
+              <span class="btn__fill" aria-hidden="true"></span>
+              <span>Replay AI-SRE trace</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a
+              href={withBase(site.resumePath)}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--outline"
+              data-fill
+            >
+              <span class="btn__fill" aria-hidden="true"></span>
+              <span>Download ATS resume</span>
+              <span class="btn__arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div class="hero__creds">
+            <span><strong>RHCSA</strong> ID 220-129-852</span>
+            <span><strong>Microsoft</strong> AZ-104 &amp; AZ-900</span>
+            <span><strong>B.Tech CSE</strong> 9.3 / 10.0 CGPA</span>
+            <span><strong>Location</strong> {site.location}</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero__schematic" data-concept-stage data-intro data-reveal="clip" aria-label="Tri-cloud routing control plane schematic">
+        <div class="schematic-bar">
+          <span>CONTROL PLANE TOPOLOGY</span>
+          <span data-telemetry-tick style="color: var(--c-trace);">AWS + GCP + AZURE + SOVEREIGN</span>
+        </div>
+
+        <svg
+          class="schematic-svg"
+          viewBox="0 0 640 194"
+          width="640"
+          height="194"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Multi-cloud and sovereign control plane architecture overview"
+          style="margin-block: 0.5rem;"
+        >
+          <defs>
+            <marker id="arr-hero" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#38BDF8" />
+            </marker>
+          </defs>
+          <rect x="1" y="1" width="638" height="192" rx="4" fill="#070A0F" stroke="rgba(244,244,240,0.14)" />
+
+          <line x1="92" y1="46" x2="548" y2="46" stroke="rgba(56,189,248,0.38)" stroke-width="1.5" stroke-dasharray="4 4" />
+          <line x1="92" y1="142" x2="548" y2="142" stroke="rgba(52,211,153,0.38)" stroke-width="1.5" stroke-dasharray="4 4" />
+          <line x1="320" y1="72" x2="320" y2="116" stroke="#38BDF8" stroke-width="1.5" marker-end="url(#arr-hero)" />
+
+          <rect x="18" y="20" width="148" height="52" rx="4" fill="#0E1420" stroke="#FBBF24" stroke-width="1.5" />
+          <text x="92" y="42" fill="#FBBF24" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" text-anchor="middle">AWS Platform</text>
+          <text x="92" y="58" fill="#CBD5E1" font-family="'IBM Plex Mono', monospace" font-size="9.5" text-anchor="middle">EKS, ECS, CFN, SSM</text>
+
+          <rect x="242" y="20" width="156" height="52" rx="4" fill="#0E1420" stroke="#38BDF8" stroke-width="1.5" />
+          <text x="320" y="42" fill="#38BDF8" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" text-anchor="middle">GitOps &amp; IaC Hub</text>
+          <text x="320" y="58" fill="#CBD5E1" font-family="'IBM Plex Mono', monospace" font-size="9.5" text-anchor="middle">Terraform, Argo, GHA</text>
+
+          <rect x="474" y="20" width="148" height="52" rx="4" fill="#0E1420" stroke="#A78BFA" stroke-width="1.5" />
+          <text x="548" y="42" fill="#A78BFA" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" text-anchor="middle">NIC Meghraj</text>
+          <text x="548" y="58" fill="#CBD5E1" font-family="'IBM Plex Mono', monospace" font-size="9.5" text-anchor="middle">Dual 8-Node Air-Gap</text>
+
+          <rect x="18" y="116" width="148" height="52" rx="4" fill="#0E1420" stroke="#60A5FA" stroke-width="1.5" />
+          <text x="92" y="138" fill="#60A5FA" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" text-anchor="middle">GCP FinOps &amp; DR</text>
+          <text x="92" y="154" fill="#CBD5E1" font-family="'IBM Plex Mono', monospace" font-size="9.5" text-anchor="middle">GKE Spot, BigQuery</text>
+
+          <rect x="242" y="116" width="156" height="52" rx="4" fill="#0E1420" stroke="#34D399" stroke-width="1.5" />
+          <text x="320" y="138" fill="#34D399" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" text-anchor="middle">AI-SRE &amp; APM</text>
+          <text x="320" y="154" fill="#CBD5E1" font-family="'IBM Plex Mono', monospace" font-size="9.5" text-anchor="middle">Gemini 2.5, Datadog</text>
+
+          <rect x="474" y="116" width="148" height="52" rx="4" fill="#0E1420" stroke="#38BDF8" stroke-width="1.5" />
+          <text x="548" y="138" fill="#38BDF8" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" text-anchor="middle">Microsoft Azure</text>
+          <text x="548" y="154" fill="#CBD5E1" font-family="'IBM Plex Mono', monospace" font-size="9.5" text-anchor="middle">ALZ, AKS, Istio ILB</text>
+
+          <circle data-packet="a" cx="92" cy="46" r="4" fill="#38BDF8" />
+          <circle data-packet="b" cx="548" cy="142" r="4" fill="#34D399" />
+        </svg>
+
+        <div class="schematic-stack" aria-hidden="true">
+          <div class="schematic-stack__node" style="border-left-color: #FBBF24;">
+            <strong style="color: #FBBF24;">AWS Platform</strong>
+            <span>EKS, ECS, CFN, SSM</span>
+          </div>
+          <span class="schematic-stack__arrow" aria-hidden="true">↓</span>
+          <div class="schematic-stack__node" style="border-left-color: #38BDF8;">
+            <strong style="color: #38BDF8;">GitOps &amp; IaC Hub</strong>
+            <span>Terraform, Argo, GHA</span>
+          </div>
+          <span class="schematic-stack__arrow" aria-hidden="true">↓</span>
+          <div class="schematic-stack__node" style="border-left-color: #A78BFA;">
+            <strong style="color: #A78BFA;">NIC Meghraj</strong>
+            <span>Dual 8-Node Air-Gap</span>
+          </div>
+          <span class="schematic-stack__arrow" aria-hidden="true">↓</span>
+          <div class="schematic-stack__node" style="border-left-color: #60A5FA;">
+            <strong style="color: #60A5FA;">GCP FinOps &amp; DR</strong>
+            <span>GKE Spot, BigQuery</span>
+          </div>
+          <span class="schematic-stack__arrow" aria-hidden="true">↓</span>
+          <div class="schematic-stack__node" style="border-left-color: #34D399;">
+            <strong style="color: #34D399;">AI-SRE &amp; APM</strong>
+            <span>Gemini 2.5, Datadog</span>
+          </div>
+          <span class="schematic-stack__arrow" aria-hidden="true">↓</span>
+          <div class="schematic-stack__node" style="border-left-color: #38BDF8;">
+            <strong style="color: #38BDF8;">Microsoft Azure</strong>
+            <span>ALZ, AKS, Istio ILB</span>
+          </div>
+        </div>
+
+        <div class="schematic-foot">
+          <div class="schematic-kv">
+            <strong>99.99% Uptime</strong>
+            <span>80+ microservices operated</span>
+          </div>
+          <div class="schematic-kv">
+            <strong>$170K+ / INR 2.06 Cr</strong>
+            <span>Verified cloud cost impact</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 2. Tabular Verified Telemetry Ledger -->
+  <section class="ledger-band" aria-label="Verified Production Metrics">
+    <div class="wrap ledger-grid">
+      {
+        site.kpis.map((kpi) => (
+          <div class={`ledger-cell ${kpi.signal ? 'ledger-cell--signal' : ''}`}>
+            <span class="ledger-num tabular">{kpi.value}</span>
+            <span class="ledger-title">{kpi.label}</span>
+            <span class="ledger-note">{kpi.note}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- 3. All 16 Production Systems Routing Index -->
+  <section class="section-pad" id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-head__title" data-split="lines">
+          Sixteen production architectures in one routing ledger.
+        </h2>
+        <p class="section-head__desc">
+          Select a cloud domain or search any tool below. Every system opens a dedicated architecture case study with its network schematic, problem statement, solution, and stack.
+        </p>
+      </div>
+
+      <div class="toolbar" role="region" aria-label="Filter projects by cloud, domain, or keyword">
+        <div class="filter-group" data-filter-group>
+          <button type="button" class="filter-tab is-active" data-filter="all">All (16)</button>
+          <button type="button" class="filter-tab" data-filter="aws">AWS</button>
+          <button type="button" class="filter-tab" data-filter="azure">Azure</button>
+          <button type="button" class="filter-tab" data-filter="gcp">GCP &amp; Sovereign</button>
+          <button type="button" class="filter-tab" data-filter="finops">FinOps</button>
+          <button type="button" class="filter-tab" data-filter="k8s">Kubernetes</button>
+          <button type="button" class="filter-tab" data-filter="secops">DevSecOps &amp; CI</button>
+          <button type="button" class="filter-tab" data-filter="ai">AI &amp; Data</button>
+        </div>
+
+        <div class="toolbar-search">
+          <input
+            type="search"
+            class="search-box"
+            id="route-search"
+            placeholder="Filter tool, cloud, metric..."
+            aria-label="Filter projects by keyword or tool"
+          />
+          <span class="route-count" id="route-count">Showing 16 / 16</span>
+        </div>
+      </div>
+
+      <div class="route-workbench">
+        <div>
+          <ul class="route-list" data-route-index>
+            {
+              projects.map((p, idx) => {
+                const searchBlob = `${p.code} ${p.title} ${p.domain} ${p.cloud} ${p.metric} ${p.summary} ${p.stack.join(' ')}`.toLowerCase();
+                return (
+                  <li
+                    class="route-item"
+                    data-categories={p.categories.join(',')}
+                    data-search={searchBlob}
+                  >
+                    <a
+                      href={withBase(`/work/${p.slug}/`)}
+                      class={`route-row ${idx === 0 ? 'is-inspected' : ''}`}
+                      data-preview-id={`tpl-${p.code}`}
+                      data-preview-code={p.code}
+                      data-preview-title={p.diagramTitle}
+                      data-preview-metric={p.metric}
+                      data-preview-summary={p.summary}
+                      data-cursor="Inspect"
+                    >
+                      <span class="route-code tabular">{p.code}</span>
+                      <div class="route-main">
+                        <div class="route-main__head">
+                          <span class="cloud-tag">{p.cloud}</span>
+                          <span class="route-metric tabular">{p.metric}</span>
+                        </div>
+                        <span class="route-main__title">{p.title}</span>
+                        <span class="route-main__domain">{p.domain}</span>
+                        <div class="route-stack-inline">
+                          {p.stack.slice(0, 5).map((item) => (
+                            <span class="mini-pill">{item}</span>
+                          ))}
+                        </div>
+                      </div>
+                      <span class="route-row__arrow" aria-hidden="true">→</span>
+                    </a>
+                    <template id={`tpl-${p.code}`}>
+                      <SchematicSvg project={p} />
+                    </template>
+                  </li>
+                );
+              })
+            }
+          </ul>
+
+          <p id="route-empty" class="mono" style="padding: 2rem 0; color: var(--c-muted);" hidden>
+            No matching architecture routes. Clear search input or switch filter back to All (16).
+          </p>
+        </div>
+
+        <aside class="route-inspector" data-route-inspector aria-label="Architecture schematic inspector">
+          <div class="route-inspector__bar">
+            <span>LIVE SCHEMATIC INSPECTOR</span>
+            <span data-inspector-code>{defaultInspected.code}</span>
+          </div>
+          <div class="route-inspector__title" data-inspector-title>
+            {defaultInspected.diagramTitle}
+          </div>
+          <div class="route-inspector__canvas" data-inspector-canvas>
+            <SchematicSvg project={defaultInspected} />
+          </div>
+          <div class="route-inspector__metric tabular" data-inspector-metric>
+            {defaultInspected.metric}
+          </div>
+          <p class="route-inspector__summary" data-inspector-summary>
+            {defaultInspected.summary}
+          </p>
+          <div class="mono" style="font-size:0.68rem; color: var(--c-dark-muted); border-top: 1px solid rgba(244,244,240,0.14); padding-top:0.65rem;">
+            Hover or focus any route on the left to inspect its topology; activate row to open full architecture case study.
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Dark Carbon Chapter: Live Autonomous AI-SRE Agent -->
+  <section class="section-pad band-dark" id="ai-sre">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-head__title" data-split="lines">
+          Autonomous CI remediation at pipeline-agent.tech.
+        </h2>
+        <p class="section-head__desc" style="color: var(--c-dark-muted);">
+          Open-source AI-SRE system that intercepts failed build webhooks, optimizes LLM credit burn through stack-trace chunking, and dispatches fix Pull Requests.
+        </p>
+      </div>
+
+      <div class="sre-grid">
+        <div style="display:grid; gap:1rem;">
+          <div class="sre-card-meta">
+            <span>PRJ-00 // LIVE PERSONAL PROJECT</span>
+            <span>Cloud Run + Gemini 2.5 Flash + PyGithub</span>
+          </div>
+
+          <div class="sre-diagram-box">
+            <SchematicSvg project={simAgent} />
+          </div>
+
+          <p style="font-size: var(--t-s); color: var(--c-dark-muted);">
+            {simAgent.architecture}
+          </p>
+
+          <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
+            {simAgent.stack.map((s) => <span class="dark-pill">{s}</span>)}
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:0.65rem; margin-top:0.4rem;">
+            <a
+              href="https://pipeline-agent.tech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--outline"
+              data-fill
+            >
+              <span class="btn__fill" aria-hidden="true"></span>
+              <span>Open live platform</span>
+              <span class="btn__arrow" aria-hidden="true">↗</span>
+            </a>
+            <a
+              href="https://github.com/NagabairuManoj/sre-agent-backend"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--outline"
+              data-fill
+            >
+              <span class="btn__fill" aria-hidden="true"></span>
+              <span>Backend repository</span>
+              <span class="btn__arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="sre-terminal" aria-label="Interactive AI-SRE incident simulation">
+          <div class="sre-terminal__bar">
+            <span>stream://live-incident-replay</span>
+            <button type="button" id="sre-sim-btn" class="btn btn--primary" data-fill>
+              <span class="btn__fill" aria-hidden="true"></span>
+              <span>Run failure replay</span>
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </button>
+          </div>
+          <div id="sre-sim-output" class="sre-terminal__log" aria-live="polite">Ready. Activate "Run failure replay" to trace webhook intake, token chunking, Gemini 2.5 RCA, and automated PR creation.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Core Capabilities Grid -->
+  <section class="section-pad">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="section-head__title" data-split="lines">
+          Six engineering disciplines across public and sovereign clouds.
+        </h2>
+        <p class="section-head__desc">
+          Full inventory of certified credentials, production tools, and consultancy timeline is available on the <a href={withBase('/about/')} class="tap-link"><span class="inline-link">About &amp; Stack</span></a> page.
+        </p>
+      </div>
+
+      <div class="cap-grid">
+        {
+          site.capabilities.map((cap) => (
+            <article class="cap-cell" data-reveal="up">
+              <span class="cap-num">{cap.num}</span>
+              <h3 class="cap-title">{cap.title}</h3>
+              <p class="cap-text">{cap.text}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Direct Handshake & Contact -->
+  <section class="section-pad" id="contact" style="border-top: 1px solid var(--c-line);">
+    <div class="wrap contact-layout">
+      <div>
+        <h2 class="section-head__title" style="margin-bottom:1rem;" data-split="lines">
+          Start an engineering conversation.
+        </h2>
+        <p style="color: var(--c-muted); margin-bottom:1.5rem; max-width:44ch;">
+          Open to Lead Cloud Architect, Senior DevOps Engineer, and Site Reliability Engineering roles in Hyderabad, Bengaluru, and remote engineering teams.
+        </p>
+
+        <div class="endpoint-row">
+          <span class="endpoint-label">Direct Email</span>
+          <div style="display:flex; align-items:center; gap:0.65rem;">
+            <a href={`mailto:${site.email}`} class="tap-link mono" style="font-size:0.86rem;">
+              <span class="inline-link">{site.email}</span>
+            </a>
+            <button type="button" id="copy-email-btn" class="btn btn--outline" data-fill style="min-height:44px; padding:0.45rem 0.9rem;">
+              <span class="btn__fill" aria-hidden="true"></span>
+              <span>Copy</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="endpoint-row">
+          <span class="endpoint-label">LinkedIn</span>
+          <a href={site.socials[0].href} target="_blank" rel="noopener noreferrer" class="tap-link mono" style="font-size:0.86rem;">
+            <span class="inline-link">linkedin.com/in/nagabairu-manoj ↗</span>
+          </a>
+        </div>
+
+        <div class="endpoint-row">
+          <span class="endpoint-label">GitHub</span>
+          <a href={site.socials[1].href} target="_blank" rel="noopener noreferrer" class="tap-link mono" style="font-size:0.86rem;">
+            <span class="inline-link">github.com/NagabairuManoj ↗</span>
+          </a>
+        </div>
+
+        <div class="endpoint-row">
+          <span class="endpoint-label">Employer of Record</span>
+          <span class="mono" style="font-size:0.82rem;">{site.company.name} ({site.company.period})</span>
+        </div>
+      </div>
+
+      <form id="inquiry-form" class="inquiry-form">
+        <div class="field">
+          <label for="sender-name">YOUR NAME OR ORGANIZATION</label>
+          <input id="sender-name" type="text" required placeholder="Alex Chen - Cloud Engineering" />
+        </div>
+        <div class="field">
+          <label for="sender-email">REPLY EMAIL</label>
+          <input id="sender-email" type="email" required placeholder="alex@company.com" />
+        </div>
+        <div class="field">
+          <label for="sender-scope">ROLE OR ARCHITECTURE SCOPE</label>
+          <textarea id="sender-scope" rows="4" required placeholder="Share role scope, cloud stack, or interview availability..."></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary" data-fill>
+          <span class="btn__fill" aria-hidden="true"></span>
+          <span>Prepare direct email dispatch</span>
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </button>
+        <p id="form-status" class="mono" style="font-size:0.76rem; color:var(--c-signal); min-height:1.2em;" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import { onPage } from '../engine';
+
+  onPage(() => {
+    const cleanups: (() => void)[] = [];
+
+    // 1. Routing Filter & Search
+    const filterButtons = [...document.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const items = [...document.querySelectorAll<HTMLElement>('.route-item')];
+    const searchInput = document.getElementById('route-search') as HTMLInputElement | null;
+    const countEl = document.getElementById('route-count');
+    const emptyEl = document.getElementById('route-empty');
+
+    let activeCategory = 'all';
+
+    const applyFilter = () => {
+      const q = (searchInput?.value || '').trim().toLowerCase();
+      let shown = 0;
+      items.forEach((item) => {
+        const cats = (item.dataset.categories || '').split(',');
+        const blob = item.dataset.search || '';
+        const okCat = activeCategory === 'all' || cats.includes(activeCategory);
+        const okSearch = !q || blob.includes(q);
+        const visible = okCat && okSearch;
+        item.hidden = !visible;
+        if (visible) shown += 1;
+      });
+      if (countEl) countEl.textContent = `Showing ${shown} / ${items.length}`;
+      if (emptyEl) emptyEl.hidden = shown > 0;
+    };
+
+    filterButtons.forEach((btn) => {
+      const onClick = () => {
+        activeCategory = btn.dataset.filter || 'all';
+        filterButtons.forEach((b) => b.classList.toggle('is-active', b === btn));
+        applyFilter();
+      };
+      btn.addEventListener('click', onClick);
+      cleanups.push(() => btn.removeEventListener('click', onClick));
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', applyFilter);
+      cleanups.push(() => searchInput.removeEventListener('input', applyFilter));
+    }
+
+    // 2. AI-SRE Live Incident Simulation
+    const simBtn = document.getElementById('sre-sim-btn') as HTMLButtonElement | null;
+    const simOut = document.getElementById('sre-sim-output');
+    if (simBtn && simOut) {
+      let running = false;
+      const timers: number[] = [];
+      const trace = [
+        { cls: 'sim-warn', text: '[WEBHOOK 00:00.14] workflow_run.completed: conclusion="failure" repo="prod-checkout-api"' },
+        { cls: 'sim-cyan', text: '[CLOUD TASKS] Queued incident #INC-409 -> Cloud Run worker (us-central1)' },
+        { cls: 'sim-cyan', text: '[TOKEN OPT] Filtered noise & chunked last 120 traceback lines (-78% prompt tokens)' },
+        { cls: 'sim-err',  text: '[RCA] Detected missing Dockerfile HEALTHCHECK binary + unhandled KeyError on STRIPE_KEY' },
+        { cls: 'sim-cyan', text: '[GEMINI 2.5 FLASH] Synthesized minimal fix diff against commit a18f3d9..7c201b4' },
+        { cls: 'sim-cyan', text: '[PYGITHUB] Created branch fix/sre-inc-409 and opened Pull Request #5' },
+        { cls: 'sim-ok',   text: '[VERIFIED] CI status PASSED | Audit logged to PostgreSQL | MTTR: 19.4s' },
+      ];
+      const onSim = () => {
+        if (running) return;
+        running = true;
+        simOut.innerHTML = '';
+        trace.forEach((step, idx) => {
+          const tid = window.setTimeout(() => {
+            const line = document.createElement('div');
+            line.className = step.cls;
+            line.textContent = step.text;
+            simOut.appendChild(line);
+            simOut.scrollTop = simOut.scrollHeight;
+            if (idx === trace.length - 1) running = false;
+          }, idx * 320);
+          timers.push(tid);
+        });
+      };
+      simBtn.addEventListener('click', onSim);
+      cleanups.push(() => {
+        simBtn.removeEventListener('click', onSim);
+        timers.forEach((t) => clearTimeout(t));
+      });
+    }
+
+    // 3. Copy Email & Mailto Form
+    const copyBtn = document.getElementById('copy-email-btn');
+    if (copyBtn) {
+      const onCopy = () => {
+        navigator.clipboard?.writeText('manojnagabairu@gmail.com');
+        const label = copyBtn.querySelector('span:not(.btn__fill)');
+        if (label) label.textContent = 'Copied';
+        window.setTimeout(() => {
+          if (label) label.textContent = 'Copy';
+        }, 1600);
+      };
+      copyBtn.addEventListener('click', onCopy);
+      cleanups.push(() => copyBtn.removeEventListener('click', onCopy));
+    }
+
+    const form = document.getElementById('inquiry-form') as HTMLFormElement | null;
+    const statusEl = document.getElementById('form-status');
+    if (form) {
+      const onSubmit = (e: Event) => {
+        e.preventDefault();
+        const name = (document.getElementById('sender-name') as HTMLInputElement).value.trim();
+        const email = (document.getElementById('sender-email') as HTMLInputElement).value.trim();
+        const scope = (document.getElementById('sender-scope') as HTMLTextAreaElement).value.trim();
+        if (!name || !email || !scope) return;
+        const subject = encodeURIComponent(`Cloud / SRE Opportunity from ${name}`);
+        const body = encodeURIComponent(`From: ${name} (${email})\n\n${scope}`);
+        if (statusEl) statusEl.textContent = 'Opening pre-filled email draft to manojnagabairu@gmail.com.';
+        window.location.href = `mailto:manojnagabairu@gmail.com?subject=${subject}&body=${body}`;
+      };
+      form.addEventListener('submit', onSubmit);
+      cleanups.push(() => form.removeEventListener('submit', onSubmit));
+    }
+
+    return () => cleanups.forEach((fn) => fn());
+  });
+</script>

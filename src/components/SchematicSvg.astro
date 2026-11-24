@@ -1,0 +1,128 @@
+---
+import type { Project } from '../data/site';
+
+interface Props {
+  project: Project;
+  animate?: boolean;
+}
+
+const { project, animate = false } = Astro.props;
+const markerId = `arr-${project.code.toLowerCase()}`;
+const edge0 = project.edges[0];
+---
+
+<svg
+  class="schematic-svg"
+  viewBox="0 0 640 186"
+  width="640"
+  height="186"
+  xmlns="http://www.w3.org/2000/svg"
+  role="img"
+  aria-label={`${project.title} architecture schematic`}
+>
+  <defs>
+    <marker
+      id={markerId}
+      viewBox="0 0 10 10"
+      refX="8"
+      refY="5"
+      markerWidth="6"
+      markerHeight="6"
+      orient="auto-start-reverse"
+    >
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#38BDF8" />
+    </marker>
+  </defs>
+  <rect
+    x="1"
+    y="1"
+    width="638"
+    height="184"
+    rx="4"
+    fill="#090D14"
+    stroke="rgba(244, 244, 240, 0.14)"
+  />
+  {
+    project.edges.map((e) => (
+      <line
+        x1={e[0]}
+        y1={e[1]}
+        x2={e[2]}
+        y2={e[3]}
+        stroke="#38BDF8"
+        stroke-width="1.5"
+        stroke-dasharray="4 3"
+        marker-end={`url(#${markerId})`}
+      />
+    ))
+  }
+  {
+    project.nodes.map((n) => {
+      const cx = n.x + n.w / 2;
+      return (
+        <g>
+          <rect
+            x={n.x}
+            y={n.y}
+            width={n.w}
+            height={n.h}
+            rx="4"
+            fill="#0E1420"
+            stroke={n.stroke}
+            stroke-width="1.4"
+          />
+          <text
+            x={cx}
+            y={n.y + 22}
+            fill={n.text}
+            font-family="'IBM Plex Mono', monospace"
+            font-size="11.5"
+            font-weight="600"
+            text-anchor="middle"
+          >
+            {n.title}
+          </text>
+          <text
+            x={cx}
+            y={n.y + 39}
+            fill="#CBD5E1"
+            font-family="'IBM Plex Mono', monospace"
+            font-size="9.5"
+            text-anchor="middle"
+          >
+            {n.sub}
+          </text>
+        </g>
+      );
+    })
+  }
+  {
+    animate && edge0 && (
+      <circle
+        data-case-packet
+        data-x1={edge0[0]}
+        data-y1={edge0[1]}
+        data-x2={edge0[2]}
+        data-y2={edge0[3]}
+        cx={edge0[0]}
+        cy={edge0[1]}
+        r="4"
+        fill="#38BDF8"
+      />
+    )
+  }
+</svg>
+
+<div class="schematic-stack" aria-hidden="true">
+  {
+    project.nodes.map((n, idx) => (
+      <>
+        <div class="schematic-stack__node" style={`border-left-color: ${n.stroke};`}>
+          <strong style={`color: ${n.text};`}>{n.title}</strong>
+          <span>{n.sub}</span>
+        </div>
+        {idx < project.nodes.length - 1 && <span class="schematic-stack__arrow" aria-hidden="true">↓</span>}
+      </>
+    ))
+  }
+</div>
