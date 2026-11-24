@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nagabairumanoj.github.io/portfolio/sitemap-index.xml
